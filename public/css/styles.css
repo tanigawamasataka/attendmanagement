@@ -1,0 +1,278 @@
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/bootflat/2.0.4/css/bootflat.min.css');
+
+body {
+  background-color: #f4f7f8;
+}
+
+.clear {
+	clear: both;
+}
+
+.my-navbar-admin {
+  align-items: center;
+  background: #333;
+  display: flex;
+  height: 6rem;
+  justify-content: space-between;
+  padding: 0 2%;
+  margin-bottom: 3rem;
+}
+
+.my-navbar {
+  align-items: center;
+  background: #333;
+  display: flex;
+  height: 6rem;
+  justify-content: space-between;
+  padding: 0 2%;
+  margin-bottom: 3rem;
+  margin-top: -20px
+}
+
+.my-navbar-brand {
+  font-size: 18px;
+}
+
+.my-navbar-title {
+  font-size: 18px;
+}
+
+.my-navbar-brand,
+.my-navbar-title {
+  color: #f3efef;
+}
+
+.my-navbar-brand,
+.my-navbar-item {
+  color: #8c8c8c;
+}
+
+.my-navbar-brand:hover,
+a.my-navbar-item:hover {
+  color: #ffffff;
+}
+
+.w-50 {
+  width: 40% !important;
+  margin-left: 100px;
+}
+
+.w-60 {
+  width: 60% !important;
+  margin-left: 50px;
+}
+
+.w-70 {
+  width: 60% !important;
+}
+
+.label_for {
+  margin-left: 50px;
+}
+
+.text {
+  font-size: 18px;
+  margin-left: 30px;
+  margin-bottom: 10px;
+}
+
+.table-td {
+  text-align: justify;
+ 
+}
+
+.table td:nth-child(1),
+.table td:nth-child(3)
+.table td:nth-child(4) {
+  white-space: nowrap;
+  width: 2px;
+  
+}
+
+.form-control[disabled],
+.form-control[readonly] {
+  background-color: #fff;
+}
+
+.panel-body {
+ padding-left:40px;
+ line-height: 50px;
+}
+
+.form-title{
+ padding-right:30px;
+}
+
+.form-performance {
+ width:130px;
+ height:30px;
+}
+
+.delete-button {
+ margin-left:50px;
+}
+
+#meal_fg {
+  padding-left: 40px;
+}
+
+#outside_fg {
+  padding-left: 40px;
+}
+
+#medical_fg {
+  padding-left: 50px;
+}
+
+#container-top {
+ text-align:right;
+ margin-bottom:10px;
+ }
+ 
+#performances {
+  margin-left: -20px;
+  list-style: none;
+  overflow: hidden;
+  width:1100px;
+  height: 30px;
+  border-bottom: dotted 1px #afafaf;
+}
+ 
+#performances li {
+  text-align: left;
+  float: left;
+}
+
+#attend_day {
+  margin-left: -28px;
+  margin-top: -10px;
+}
+
+#attend_week {
+  margin-left: 25px;
+  margin-top: -10px;
+}
+
+#service {
+  margin-left: 130px;
+  margin-top: -10px;
+}
+
+#punch_in {
+  margin-left: 230px;
+  margin-top: -10px;
+}
+
+#punch_out {
+  margin-left: 65px;
+  margin-top: -10px;
+}
+
+#meal {
+  margin-left: 90px;
+  margin-top: -10px;
+}
+
+#outside {
+  margin-left: 140px;
+  margin-top: -10px;
+}
+
+#medical {
+  margin-left: 150px;
+  margin-top: -10px;
+}
+
+#note {
+  margin-left: 90px;
+  margin-top: -10px;
+}
+
+.panel-default > .panel-heading-custom {
+ height:100px;
+}
+
+.panel-table-header {
+  margin-left: -40px;
+  margin-top: -15px;
+  margin-bottom: 10px;
+  width: 1140px;
+  height: 114px;
+  border: solid 1px #cacaca;
+
+}
+
+#panel-header-left {
+ float:left;
+ margin-left:20px;
+ padding-top:14px;
+}
+
+.panel-table-date-name {
+  float: left;
+  padding-top: 31px;
+  padding-bottom: 31px;
+  margin-left: 25px;
+  font-weight: bold;
+  letter-spacing: 8px;
+}
+
+.panel-table-category {
+  border-left: solid 1px #cacaca;
+  border-right: solid 1px #cacaca;
+  font-weight: bold;
+  font-size: 13px;
+  float: left;
+  margin: 0 20px 1px 20px;
+  letter-spacing: 3px;
+}
+
+.panel-table-remarks {
+  float: left;
+  padding: 31px 8px;
+  font-weight: bold;
+  letter-spacing: 3px;  
+}
+
+
+.panel-table-title {
+  border-bottom: solid 1px #cacaca;
+  margin-bottom: 10px;
+  font-size:13px;
+  text-align: center;
+ } 
+
+.service {
+  margin: 0 8px;
+  padding: 0 6px;
+}
+
+#panel-header-title {
+ float: left;
+ margin-left:300px;
+ padding-top:16px;
+ font-size:30px;
+}
+
+#panel-header-right {
+ float:left;
+ margin-left:300px;
+ padding-top:14px;
+}
+
+.panel-header-label{
+ font-size:15px;
+}
+
+#panel-header-name {
+ font-size:20px;
+ padding-top:5px;
+ text-align:center;
+}
+
+#panel-header-school-name {
+ font-size:20px;
+ padding-top:5px;
+ text-align:center;
+}
