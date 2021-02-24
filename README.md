@@ -17,7 +17,13 @@
 * ログイン名:　山田(全角スペース)一郎
 * パスワード:　test1234
 
+##### データベース設計図
+https://docs.google.com/spreadsheets/d/1PLwfRIJA3BZXcDvk6IPcUnxvdxiOMSviMukNv2x7jbQ/edit?usp=sharing
+
 #### 画面一覧
+
+##### 画面設計図
+https://docs.google.com/drawings/d/1fbuXCPVTCPS1xhkYKdgdgZK49b13ye0JrnkzbdbpFV0/edit?usp=sharing
 
 ##### 利用者用ページ
 
