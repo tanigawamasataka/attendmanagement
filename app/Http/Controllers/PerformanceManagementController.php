@@ -39,6 +39,9 @@ class PerformanceManagementController extends Controller
             $performances = Performance::whereHas('timecard.user.school', function($query) use($schools){
                 $query->where('id', $schools);
             })->get();
+            
+            //選ばれたユーザーの所属校を取得する
+            $current_school = School::find($schools);
         } 
 
         //カレンダーの日時を取得   
@@ -55,6 +58,7 @@ class PerformanceManagementController extends Controller
 
         return view('/admin/performanceManagement', [
             'performances' => $performances,
+            'current_school' => $current_school,
         ]);
     }
 
@@ -115,6 +119,9 @@ class PerformanceManagementController extends Controller
         //プルダウンメニューの選択した所属校を含むカラムを取得
         if (isset($schools)) 
         {
+            //選ばれたユーザーの所属校を取得する
+            $current_school = School::find($schools);
+
             //タイムカードをリレーション先の所属校で検索
             $timecards = Timecard::whereHas('user.school', function($query) use($schools){
                 $query->where('id', $schools);
@@ -135,6 +142,7 @@ class PerformanceManagementController extends Controller
 
         return view('/admin/attendanceForDate', [
             'timecards' => $timecards,
+            'current_school' => $current_school,
         ]);
     }
 
@@ -188,15 +196,23 @@ class PerformanceManagementController extends Controller
     }
 
     /**
-     * 新規実績登録ページを表示
+     * 利用者別新規実績登録ページを表示
      */
     public function showPerformanceRegister(int $user_id)
     {
         //利用者情報を取得
         $user = User::find($user_id);
 
+        //出席、退席時刻のプルダウン配列
+        $punch_ins = ['09:30', '09:45', '10:00', '10:15', '10:30', '10:45', '11:00', '11:15', '11:30', '11:45', '12:00','12:15',
+         '12:30', '12:45', '13:00', '13:15', '13:30', '13:45', '14:00', '14:15', '14:30', '14:45', '15:00', '15:15', '15:30', '15:45'];
+        $punch_outs = ['09:45', '10:00', '10:15', '10:30', '10:45', '11:00', '11:15', '11:30', '11:45', '12:00','12:15','12:30',
+         '12:45', '13:00', '13:15', '13:30', '13:45', '14:00', '14:15', '14:30', '14:45', '15:00', '15:15', '15:30', '15:45', '16:00'];
+
         return view('/admin/performanceRegister', [
             'user' => $user,
+            'punch_ins' => $punch_ins,
+            'punch_outs' => $punch_outs,
         ]);
     }   
 

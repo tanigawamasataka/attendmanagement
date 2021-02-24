@@ -65,10 +65,10 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/admin/{performance_id}/performanceEdit', 'PerformanceResultController@performanceEdit');
 
     /*利用者別実績管理ページを表示*/
-    Route::get('/admin/{user_id}/individualPerformance', 'PerformanceResultController@showIndividualPerformance')->name('individualPerformance');
-    
+    Route::get('/admin/{user_id}/individualPerformance/{timecard_id}', 'PerformanceResultController@showIndividualPerformance')->name('individualPerformance');
+
     /*実績記録のExcel出力*/
-    Route::get('/admin/{user_id}/export', 'PerformanceExportController@export')->name('performanceExport');
+    Route::get('/admin/{user_id}/export/{timecard_id}', 'PerformanceExportController@export')->name('performanceExport');
 });
 
 /*ログイン認証*/

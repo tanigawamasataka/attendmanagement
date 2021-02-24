@@ -15,6 +15,6 @@ return [
 
     'required' => '必須入力項目です。',
     'failed' => '管理者名かパスワードが間違っています',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'throttle' => 'ログイン試行が指定回数に達しました',
 
 ];

@@ -3,7 +3,7 @@
     <th></th>
     <th></th>
     <th></th>
-    <th colspan="2">{{ $today->isoFormat('YYYY年MM月') }}</th>
+    <th colspan="2">{{ $year }}年{{ $month }}月</th>
     <th></th>
     <th></th>
     <th></th>
@@ -46,7 +46,7 @@
     @if ($day == $record)
     <tr>
       <td></td>
-      <td style="vertical-align: center; text-align: center; font-size: 10px;">{{ $day->isoformat('DD') }}日</td>
+      <td style="vertical-align: center; text-align: center; font-size: 10px;">{{ ltrim($day->isoformat('DD'), "0") }}日</td>
       <td style="vertical-align: center; text-align: center; font-size: 10px;">{{ $week->isoformat('ddd') }}</td>
       <td style="vertical-align: center; text-align: center; font-size: 10px;">欠</td>
       <td></td>
@@ -59,7 +59,7 @@
     @else
     <tr>
       <td></td>
-      <td style="vertical-align: center; text-align: center; font-size: 10px;">{{ $day->isoformat('DD') }}日</td>
+      <td style="vertical-align: center; text-align: center; font-size: 10px;">{{ ltrim($day->isoformat('DD'), "0") }}日</td>
       <td style="vertical-align: center; text-align: center; font-size: 10px;">{{ $week->isoformat('ddd') }}</td>
       <td></td>
       <td style="vertical-align: center; text-align: center;">{{ mb_substr($record->timecard->punch_in, 0,5) }}</td>

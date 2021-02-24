@@ -104,6 +104,7 @@ class TimecardController extends Controller
         $current_user = User::find($user_id);
 
         //出席時間を15分切り上げで取得(9:00～9:15は9:30で打刻)
+        Carbon::setLocale('ja');
         $punch_in_time = Carbon::now();
 
         if ($punch_in_time->between(Carbon::createFromTime(9, 00, 0), Carbon::createFromTime(9, 15, 0))) {

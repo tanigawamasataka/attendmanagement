@@ -8,7 +8,7 @@
         <div class="panel-heading">ログイン</div>
           <div class="panel-body">
             @if($errors->any())
-              <div class="alert alert-danger">
+              <div class="text-danger mt-3">
                 @foreach($errors->all() as $message)
                   <p>{{ $message }}</p>
                 @endforeach

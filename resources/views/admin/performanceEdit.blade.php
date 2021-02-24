@@ -8,7 +8,7 @@
 @section('content')
   <div class="text"></div>
   <div class="container">
-  　<div class="col col-md-offset-3 col-md-5">
+    <div class="col col-md-offset-3 col-md-5">
       <nav class="panel panel-default">
         <div class="panel-heading">実績編集・削除</div>
           <div class="panel-body">
@@ -37,67 +37,21 @@
                   <td class="form-title">開始時間</td>
                   <td>
                     <select class="form-performance" name="punch_in">
-                        <option value="9:30" @if($performance->timecard->punch_in == '9:30:00') selected @endif>9:30</option>
-                        <option value="9:45" @if($performance->timecard->punch_in == '9:45:00') selected @endif>9:45</option>
-                        <option value="10:00" @if($performance->timecard->punch_in == '10:00:00') selected @endif>10:00</option>
-                        <option value="10:15" @if($performance->timecard->punch_in == '10:15:00') selected @endif>10:15</option>
-                        <option value="10:30" @if($performance->timecard->punch_in == '10:30:00') selected @endif>10:30</option>
-                        <option value="10:45" @if($performance->timecard->punch_in == '10:45:00') selected @endif>10:45</option>
-                        <option value="11:00" @if($performance->timecard->punch_in == '11:00:00') selected @endif>11:00</option>
-                        <option value="11:15" @if($performance->timecard->punch_in == '11:15:00') selected @endif>11:15</option>
-                        <option value="11:30" @if($performance->timecard->punch_in == '11:30:00') selected @endif>11:30</option>
-                        <option value="11:45" @if($performance->timecard->punch_in == '11:45:00') selected @endif>11:45</option>
-                        <option value="12:00" @if($performance->timecard->punch_in == '12:00:00') selected @endif>12:00</option>
-                        <option value="12:15" @if($performance->timecard->punch_in == '12:15:00') selected @endif>12:15</option>
-                        <option value="12:30" @if($performance->timecard->punch_in == '12:30:00') selected @endif>12:30</option>
-                        <option value="12:45" @if($performance->timecard->punch_in == '12:45:00') selected @endif>12:45</option>
-                        <option value="13:00" @if($performance->timecard->punch_in == '13:00:00') selected @endif>13:00</option>
-                        <option value="13:15" @if($performance->timecard->punch_in == '13:15:00') selected @endif>13:15</option>
-                        <option value="13:30" @if($performance->timecard->punch_in == '13:30:00') selected @endif>13:30</option>
-                        <option value="13:45" @if($performance->timecard->punch_in == '13:45:00') selected @endif>13:45</option>
-                        <option value="14:00" @if($performance->timecard->punch_in == '14:00:00') selected @endif>14:00</option>
-                        <option value="14:15" @if($performance->timecard->punch_in == '14:15:00') selected @endif>14:15</option>
-                        <option value="14:30" @if($performance->timecard->punch_in == '14:30:00') selected @endif>14:30</option>
-                        <option value="14:45" @if($performance->timecard->punch_in == '14:45:00') selected @endif>14:45</option>
-                        <option value="15:00" @if($performance->timecard->punch_in == '15:00:00') selected @endif>15:00</option>
-                        <option value="15:15" @if($performance->timecard->punch_in == '15:15:00') selected @endif>15:15</option>
-                        <option value="15:30" @if($performance->timecard->punch_in == '15:30:00') selected @endif>15:30</option>
-                        <option value="15:45" @if($performance->timecard->punch_in == '15:45:00') selected @endif>15:45</option>
+                    @foreach($punch_ins as $punch_in)                                                                 
+                      <option value="{{$punch_in}}" @if($performance->timecard->punch_in == $punch_in) selected @endif>{{mb_substr($punch_in, 0,5 )}}</option>
+                    @endforeach    
                     </select>
                   </td>
                 </tr>
                 <tr>
-                    <td class="form-title">終了時間</td>
-                    <td>
-                      <select class="form-performance" name="punch_out">
-                        <option value="9:45" @if($performance->timecard->punch_out == '9:45:00') selected @endif>9:45</option>
-                        <option value="10:00" @if($performance->timecard->punch_out == '10:00:00') selected @endif>10:00</option>
-                        <option value="10:15" @if($performance->timecard->punch_out == '10:15:00') selected @endif>10:15</option>
-                        <option value="10:30" @if($performance->timecard->punch_out == '10:30:00') selected @endif>10:30</option>
-                        <option value="10:45" @if($performance->timecard->punch_out == '10:45:00') selected @endif>10:45</option>
-                        <option value="11:00" @if($performance->timecard->punch_out == '11:00:00') selected @endif>11:00</option>
-                        <option value="11:15" @if($performance->timecard->punch_out == '11:15:00') selected @endif>11:15</option>
-                        <option value="11:30" @if($performance->timecard->punch_out == '11:30:00') selected @endif>11:30</option>
-                        <option value="11:45" @if($performance->timecard->punch_out == '11:45:00') selected @endif>11:45</option>
-                        <option value="12:00" @if($performance->timecard->punch_out == '12:00:00') selected @endif>12:00</option>
-                        <option value="12:15" @if($performance->timecard->punch_out == '12:15:00') selected @endif>12:15</option>
-                        <option value="12:30" @if($performance->timecard->punch_out == '12:30:00') selected @endif>12:30</option>
-                        <option value="12:45" @if($performance->timecard->punch_out == '12:45:00') selected @endif>12:45</option>
-                        <option value="13:00" @if($performance->timecard->punch_out == '13:00:00') selected @endif>13:00</option>
-                        <option value="13:15" @if($performance->timecard->punch_out == '13:15:00') selected @endif>13:15</option>
-                        <option value="13:30" @if($performance->timecard->punch_out == '13:30:00') selected @endif>13:30</option>
-                        <option value="13:45" @if($performance->timecard->punch_out == '13:45:00') selected @endif>13:45</option>
-                        <option value="14:00" @if($performance->timecard->punch_out == '14:00:00') selected @endif>14:00</option>
-                        <option value="14:15" @if($performance->timecard->punch_out == '14:15:00') selected @endif>14:15</option>
-                        <option value="14:30" @if($performance->timecard->punch_out == '14:30:00') selected @endif>14:30</option>
-                        <option value="14:45" @if($performance->timecard->punch_out == '14:45:00') selected @endif>14:45</option>
-                        <option value="15:00" @if($performance->timecard->punch_out == '15:00:00') selected @endif>15:00</option>
-                        <option value="15:15" @if($performance->timecard->punch_out == '15:15:00') selected @endif>15:15</option>
-                        <option value="15:30" @if($performance->timecard->punch_out == '15:30:00') selected @endif>15:30</option>
-                        <option value="15:45" @if($performance->timecard->punch_out == '15:45:00') selected @endif>15:45</option>
-                        <option value="16:00" @if($performance->timecard->punch_out == '16:00:00') selected @endif>16:00</option>   
-                      </select>
-                    </td>
+                  <td class="form-title">終了時間</td>
+                  <td>
+                    <select class="form-performance" name="punch_out">
+                    @foreach($punch_outs as $punch_out)
+                      <option value="{{$punch_out}}" @if($performance->timecard->punch_out == $punch_out) selected @endif>{{mb_substr($punch_out, 0,5 )}}</option>
+                    @endforeach    
+                    </select>
+                  </td>
                 </tr>
                 <tr>
                   <td class="form-title">食事提供加算</td>
@@ -146,7 +100,7 @@
     flatpickr(document.getElementById('attend_date'), {
       locale: 'ja',
       dateFormat: "Y/m/d",
-      
+      maxDate: new Date(),
     });
   </script>
 @endsection

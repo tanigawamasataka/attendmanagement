@@ -24,7 +24,7 @@
   <div class="container">
   　<div class="col col-md-offset-0col-md-12">
       <nav class="panel panel-default">
-        <div class="panel-heading">実績一覧</div>
+        <div class="panel-heading">@if(!empty($current_school)){{ $current_school->school_name }}@endif 実績一覧</div>
           <div class="panel-body">
             <table class="table">
                 <thead>
@@ -44,7 +44,7 @@
                 @foreach ($performances as $performance)
                     <tr class="table-td">
                         <td>{{ $performance->timecard->attend_date->isoformat('YYYY/MM/DD') }}</td>
-                        <td><a href="{{ route('individualPerformance', ['user_id' => $performance->timecard->user->id]) }}">{{ optional($performance->timecard->user)->name }}</a></td>
+                        <td><a href="{{ route('individualPerformance', ['user_id' => $performance->timecard->user->id, 'timecard_id' => $performance->timecard_id]) }}">{{ optional($performance->timecard->user)->name }}</a></td>
                         <td>{{ mb_substr($performance->timecard->punch_in, 0, 5 )}}</td>
                         <td>{{ mb_substr($performance->timecard->punch_out, 0, 5 )}}</td>
                         <td id="meal_fg">{{ $performance->meal_fg }}</td>
@@ -58,7 +58,7 @@
             </table> 
           </div>
           <div class="panel-body">
-            
+      
           </div>
         </nav>
       </div>
@@ -73,7 +73,7 @@
     flatpickr(document.getElementById('attend_date'), {
       locale: 'ja',
       dateFormat: "Y/m/d",
-      
+      maxDate: new Date(),
     });
   </script>
 @endsection

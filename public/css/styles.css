@@ -9,14 +9,8 @@ body {
 	clear: both;
 }
 
-.my-navbar-admin {
-  align-items: center;
-  background: #333;
-  display: flex;
-  height: 6rem;
-  justify-content: space-between;
-  padding: 0 2%;
-  margin-bottom: 3rem;
+.date {
+  text-align: center;
 }
 
 .my-navbar {
@@ -28,6 +22,16 @@ body {
   padding: 0 2%;
   margin-bottom: 3rem;
   margin-top: -20px
+}
+
+.my-navbar-admin {
+  align-items: center;
+  background: #333;
+  display: flex;
+  height: 6rem;
+  justify-content: space-between;
+  padding: 0 2%;
+  margin-bottom: 3rem;
 }
 
 .my-navbar-brand {
@@ -98,6 +102,10 @@ a.my-navbar-item:hover {
 .panel-body {
  padding-left:40px;
  line-height: 50px;
+}
+
+#absence {
+ padding-left: 60px;
 }
 
 .form-title{
@@ -187,6 +195,10 @@ a.my-navbar-item:hover {
 #note {
   margin-left: 90px;
   margin-top: -10px;
+}
+
+.attendForDate {
+  margin-left:100px;
 }
 
 .panel-default > .panel-heading-custom {

@@ -40,65 +40,22 @@
                 </tr>
                 <tr>
                   <td class="form-title">開始時間</td>
-                  <td><select class="form-performance" name="punch_in" >
-                          <option value="9:30">9:30</option>
-                          <option value="9:45">9:45</option>
-                          <option value="10:00">10:00</option>
-                          <option value="10:15">10:15</option>
-                          <option value="10:30">10:30</option>
-                          <option value="10:45">10:45</option>
-                          <option value="11:00">11:00</option>
-                          <option value="11:15">11:15</option>
-                          <option value="11:30">11:30</option>
-                          <option value="11:45">11:45</option>
-                          <option value="12:00">12:00</option>
-                          <option value="12:15">12:15</option>
-                          <option value="12:30">12:30</option>
-                          <option value="12:45">12:45</option>
-                          <option value="13:00">13:00</option>
-                          <option value="13:15">13:15</option>
-                          <option value="13:30">13:30</option>
-                          <option value="13:45">13:45</option>
-                          <option value="14:00">14:00</option>
-                          <option value="14:15">14:15</option>
-                          <option value="14:30">14:30</option>
-                          <option value="14:45">14:45</option>
-                          <option value="15:00">15:00</option>
-                          <option value="15:15">15:15</option>
-                          <option value="15:30">15:30</option>
-                          <option value="15:45">15:45</option>
-                      </select></td>
+                  <td>
+                    <select class="form-performance" name="punch_in" >
+                    @foreach($punch_ins as $punch_in)
+                      <option value="{{$punch_in}}">{{$punch_in}}</option>
+                    @endforeach
+                    </select>
+                  </td>
                 </tr>
                 <tr>
                   <td class="form-title">終了時間</td>
-                  <td><select class="form-performance" name="punch_out">
-                          <option value="9:45">9:45</option>
-                          <option value="10:00">10:00</option>
-                          <option value="10:15">10:15</option>
-                          <option value="10:30">10:30</option>
-                          <option value="10:45">10:45</option>
-                          <option value="11:00">11:00</option>
-                          <option value="11:15">11:15</option>
-                          <option value="11:30">11:30</option>
-                          <option value="11:45">11:45</option>
-                          <option value="12:00">12:00</option>
-                          <option value="12:15">12:15</option>
-                          <option value="12:30">12:30</option>
-                          <option value="12:45">12:45</option>
-                          <option value="13:00">13:00</option>
-                          <option value="13:15">13:15</option>
-                          <option value="13:30">13:30</option>
-                          <option value="13:45">13:45</option>
-                          <option value="14:00">14:00</option>
-                          <option value="14:15">14:15</option>
-                          <option value="14:30">14:30</option>
-                          <option value="14:45">14:45</option>
-                          <option value="15:00">15:00</option>
-                          <option value="15:15">15:15</option>
-                          <option value="15:30">15:30</option>
-                          <option value="15:45">15:45</option>
-                          <option value="16:00">16:00</option>
-                      </select>
+                  <td>
+                    <select class="form-performance" name="punch_out">
+                    @foreach($punch_outs as $punch_out)
+                      <option value="{{$punch_out}}">{{$punch_out}}</option>
+                    @endforeach     
+                    </select>
                   </td>
                 </tr>
                 <tr>
@@ -147,7 +104,7 @@
     flatpickr(document.getElementById('attend_date'), {
       locale: 'ja',
       dateFormat: "Y/m/d",
-      
+      maxDate: new Date(),
     });
   </script>
 @endsection

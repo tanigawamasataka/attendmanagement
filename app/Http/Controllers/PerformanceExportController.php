@@ -16,24 +16,25 @@ class PerformanceExportController extends Controller
     /**
      * 実績記録のエクスポート
      */
-    public function export(int $user_id)
+    public function export(int $user_id, int $timecard_id)
     {
-        //個別実績ページの利用者名を取得
+        //個別実績ページの利用者名と出席日を取得
         $user = User::find($user_id);
+        $timecard = Timecard::find($timecard_id);
+        $attend_date = $timecard->attend_date;
 
-        //今月、今日、今月の日数を取得
+        //出席日を年月日に分割
+        list($year, $month, $day) = explode('-', $attend_date);
         $daysInMonth = Carbon::now()->daysInMonth;
-        $thisMonth = Carbon::now()->month;
-        $today = Carbon::today();
-    
+
         //実績一覧をリレーション先で検索
-        $performances = Performance::whereHas('timecard', function($query) use($user_id, $thisMonth){
-            $query->where('user_id', $user_id)->whereMonth('attend_date', $thisMonth);
+        $performances = Performance::whereHas('timecard', function($query) use($user_id, $attend_date){
+            $query->where('user_id', $user_id)->whereMonth('attend_date', $attend_date);
         })->get();
     
         //カレンダーを表示用の日付取得
         Carbon::setLocale('ja');
-        $dates = CarbonPeriod::create(Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth());
+        $dates = CarbonPeriod::create(Carbon::create($year, $month, 1)->startOfMonth(), Carbon::create($year, $month, 1)->endOfMonth());
         foreach($dates as $date)
         {    
             $days[] = $date;
@@ -52,8 +53,9 @@ class PerformanceExportController extends Controller
         }
 
         $view = \view('/admin/performanceExport', [
+            'year' => $year,
+            'month' => $month,
             'user' => $user,
-            'today' => $today,
             'days' => $days,
             'weeks' => $weeks,
             'records' => $records,

@@ -7,12 +7,12 @@
 
 @section('content')
   <div class="container">
-    <div class="form-group col-offset-2 col-md-2">
+    <div class="form-group col-offset-2 col-md-2 attendForDate">
         {!! Form::open(['route' => 'attendanceForDate', 'method' => 'post']) !!}
           {!! Form::select('schools', Config::get('schools.value'), null, ['class' => 'form-control col-sm-3']) !!}
     </div>
     <div class="form-group col-offset-2 col-md-2">
-          {!! Form::text('attend_date', '', ['class' => 'form-control', 'id' => 'attend_date', 'placeholder' => '実績の日付を入力']) !!}
+          {!! Form::text('attend_date', '', ['class' => 'form-control', 'id' => 'attend_date', 'placeholder' => '登録する日付を入力']) !!}
     </div>
     <div class="form-group col-offset-2 col-md-3">
           {!! Form::submit('検索', ['class' => 'btn btn-info']) !!}
@@ -20,18 +20,18 @@
     </div>
   </div>
   <div class="container">
-  　<div class="col col-md-offset-1 col-md-8">
+    <div class="col col-md-offset-1 col-md-8">
       <nav class="panel panel-default">
-        <div class="panel-heading">日付別出席者</div>
+        <div class="panel-heading">@if(!empty($current_school)){{ $current_school->school_name }}@endif 日付別出席者</div>
           <div class="panel-body">
             <table class="table">
                 <thead>
                    <tr>
-                        <th>日付</th>
-                        <th>氏名</th>
-                        <th>開始時間</th>
-                        <th>終了時間</th>
-                        <th></th>
+                      <th>日付</th>
+                      <th>氏名</th>
+                      <th>開始時間</th>
+                      <th>終了時間</th>
+                      <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,6 +63,7 @@
     flatpickr(document.getElementById('attend_date'), {
       locale: 'ja',
       dateFormat: "Y/m/d",
+      maxDate: new Date(),
       
     });
   </script>

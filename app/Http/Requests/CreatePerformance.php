@@ -25,6 +25,7 @@ class CreatePerformance extends FormRequest
     {
         return [
             'attend_date' => 'required',
+            'punch_out' => 'after:punch_in',
         ];
     }
 

@@ -2,7 +2,8 @@
 
 @section('content')
   <div class="container" id="container-top">
-    <a class="btn btn-primary" href="{{ route('performanceExport', ['user_id' => $user->id] )}}">Excel出力</a>
+    <div>{{$year}}年{{ltrim($month, "0")}}月分</div>
+    <a class="btn btn-primary" href="{{ route('performanceExport', ['user_id' => $user->id, 'timecard_id' => $timecard_id] )}}">Excel出力</a>
     <a href="{{ route('performanceManagement' )}}" class="btn btn-primary">実績一覧</a>
   </div>
   <div class="container">
@@ -44,7 +45,7 @@
               @foreach (array_map(null, $days, $weeks, $records) as [$day, $week, $record])
                 @if ($day == $record)
                 <ul id="performances">  
-                  <li id="attend_day">{{ $day->isoformat('DD') }}日</li>
+                  <li id="attend_day">{{ ltrim($day->isoformat('DD'), "0") }}日</li>
                   <li id="attend_week">{{ $week->isoformat('ddd') }}</li>
                   <li id="service">欠</li>
                   <li></li>
@@ -56,7 +57,7 @@
                 </ul>
                 @else
                 <ul id="performances">  
-                  <li id="attend_day">{{ $day->isoformat('DD') }}日</li>
+                  <li id="attend_day">{{ ltrim($day->isoformat('DD'), "0") }}日</li>
                   <li id="attend_week">{{ $week->isoformat('ddd') }}</li>
                   <li id="service"></li>
                   <li id="punch_in">{{ mb_substr($record->timecard->punch_in, 0,5) }}</li>
