@@ -4,7 +4,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class PerformanceTableSeeder extends Seeder
+class PerformancesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
