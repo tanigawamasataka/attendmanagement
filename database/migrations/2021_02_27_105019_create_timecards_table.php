@@ -18,7 +18,7 @@ class CreateTimecardsTable extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->date('attend_date');
             $table->time('punch_in');
-            $table->time('punch_out');
+            $table->time('punch_out')->nullable();
             $table->integer('status');
             $table->timestamps();
 

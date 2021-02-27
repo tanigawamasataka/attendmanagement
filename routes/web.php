@@ -11,7 +11,7 @@
 |
 */
 /*トップページ*/
-Route::get('/top', 'TimecardController@showTopPage')->name('top');
+Route::get('/', 'TimecardController@showTopPage')->name('top');
 
 /*利用者リストページ*/
 Route::get('/timecard/{id}/userNameList', 'TimecardController@showUserNameList')->name('userNameList');

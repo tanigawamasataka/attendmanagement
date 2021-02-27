@@ -4,7 +4,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class AdminsTableSeeder extends Seeder
+class AdminTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,10 +14,10 @@ class AdminsTableSeeder extends Seeder
     public function run()
     {
         DB::table('admins')->insert([
-            'name' => '山田　一郎',
-            'password' => bcrypt('test1234'),
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
+           'name' => "鈴木 一郎",
+           'password' => bcrypt('test1234'),
+           'created_at' => Carbon::now(),
+           'updated_at' => Carbon::now(),
+            ]);
     }
 }

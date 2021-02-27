@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdminTable extends Migration
+class CreateUsersTabl extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreateAdminTable extends Migration
      */
     public function up()
     {
-        Schema::create('admins', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name')->unique();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('name');
+            $table->bigInteger('school_id')->unsigned();
+            $table->softDeletes();
             $table->timestamps();
+        
+            // 外部キーを設定する
+            $table->foreign('school_id')->references('id')->on('schools');
         });
     }
 
@@ -29,6 +32,6 @@ class CreateAdminTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admin');
+        Schema::dropIfExists('users');
     }
 }
