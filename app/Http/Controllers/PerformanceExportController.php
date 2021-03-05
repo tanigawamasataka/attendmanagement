@@ -25,7 +25,7 @@ class PerformanceExportController extends Controller
 
         //出席日を年月日に分割
         list($year, $month, $day) = explode('-', $attend_date);
-        $daysInMonth = Carbon::now()->daysInMonth;
+        $daysInMonth = Carbon::create($year, $month, 1)->endOfMonth();
 
         //実績一覧をリレーション先で検索
         $performances = Performance::whereHas('timecard', function($query) use($user_id, $attend_date){
@@ -45,13 +45,13 @@ class PerformanceExportController extends Controller
         $records = $days;
         foreach($performances as $performance) 
         {
-            for ($n = 0; $n < $daysInMonth; $n++) {
+            for ($n = 0; $n < mb_substr($daysInMonth, 8,2); $n++) {
                 if ($records[$n] == $performance->timecard->attend_date) {
                     $records[$n] = $performance;
                 }
             }
         }
-
+        
         $view = \view('/admin/performanceExport', [
             'year' => $year,
             'month' => $month,
@@ -61,6 +61,6 @@ class PerformanceExportController extends Controller
             'records' => $records,
         ]);
            
-        return \Excel::download(new Export($view), 'performances.xlsx');
+        return \Excel::download(new Export($view), $user->name.' '.$year.'年'.ltrim($month, "0").'月分.xlsx');
     }
 }

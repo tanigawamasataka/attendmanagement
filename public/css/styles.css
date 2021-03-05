@@ -1,6 +1,9 @@
 @import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/bootflat/2.0.4/css/bootflat.min.css');
 
+/*
+全体のレイアウト
+*/
 body {
   background-color: #f4f7f8;
 }
@@ -13,6 +16,9 @@ body {
   text-align: center;
 }
 
+/*
+ナビ
+*/
 .my-navbar {
   align-items: center;
   background: #333;
@@ -57,6 +63,9 @@ a.my-navbar-item:hover {
   color: #ffffff;
 }
 
+/*
+入力フォーム
+*/
 .w-50 {
   width: 40% !important;
   margin-left: 100px;
@@ -80,13 +89,18 @@ a.my-navbar-item:hover {
   margin-left: 30px;
   margin-bottom: 10px;
 }
-
+#performance_table {
+  width: 1140px;
+  border: solid 1px #cacaca;
+}
+/*
+テーブル部分
+*/
 .table-td {
   text-align: justify;
- 
 }
 
-.table td:nth-child(1),
+.table td:nth-child(1)
 .table td:nth-child(3)
 .table td:nth-child(4) {
   white-space: nowrap;
@@ -106,6 +120,13 @@ a.my-navbar-item:hover {
 
 #absence {
  padding-left: 60px;
+}
+
+/*
+検索フォーム
+*/
+#attendForDate {
+ margin-left:100px;
 }
 
 .form-title{
@@ -137,128 +158,31 @@ a.my-navbar-item:hover {
  text-align:right;
  margin-bottom:10px;
  }
- 
+
+/*
+実績表ページ
+*/
 #performances {
   margin-left: -20px;
   list-style: none;
   overflow: hidden;
-  width:1100px;
-  height: 30px;
+  width:auto;
+  height: 37px;
   border-bottom: dotted 1px #afafaf;
-}
- 
-#performances li {
-  text-align: left;
-  float: left;
-}
-
-#attend_day {
-  margin-left: -28px;
-  margin-top: -10px;
-}
-
-#attend_week {
-  margin-left: 25px;
-  margin-top: -10px;
-}
-
-#service {
-  margin-left: 130px;
-  margin-top: -10px;
-}
-
-#punch_in {
-  margin-left: 230px;
-  margin-top: -10px;
-}
-
-#punch_out {
-  margin-left: 65px;
-  margin-top: -10px;
-}
-
-#meal {
-  margin-left: 90px;
-  margin-top: -10px;
-}
-
-#outside {
-  margin-left: 140px;
-  margin-top: -10px;
-}
-
-#medical {
-  margin-left: 150px;
-  margin-top: -10px;
-}
-
-#note {
-  margin-left: 90px;
-  margin-top: -10px;
-}
-
-.attendForDate {
-  margin-left:100px;
 }
 
 .panel-default > .panel-heading-custom {
  height:100px;
 }
 
-.panel-table-header {
-  margin-left: -40px;
-  margin-top: -15px;
-  margin-bottom: 10px;
-  width: 1140px;
-  height: 114px;
-  border: solid 1px #cacaca;
-
-}
-
+/*
+実績表ページヘッダー部
+*/
 #panel-header-left {
- float:left;
- margin-left:20px;
- padding-top:14px;
-}
-
-.panel-table-date-name {
-  float: left;
-  padding-top: 31px;
-  padding-bottom: 31px;
-  margin-left: 25px;
-  font-weight: bold;
-  letter-spacing: 8px;
-}
-
-.panel-table-category {
-  border-left: solid 1px #cacaca;
-  border-right: solid 1px #cacaca;
-  font-weight: bold;
-  font-size: 13px;
-  float: left;
-  margin: 0 20px 1px 20px;
-  letter-spacing: 3px;
-}
-
-.panel-table-remarks {
-  float: left;
-  padding: 31px 8px;
-  font-weight: bold;
-  letter-spacing: 3px;  
-}
-
-
-.panel-table-title {
-  border-bottom: solid 1px #cacaca;
-  margin-bottom: 10px;
-  font-size:13px;
-  text-align: center;
- } 
-
-.service {
-  margin: 0 8px;
-  padding: 0 6px;
-}
+  float:left;
+  margin-left:20px;
+  padding-top:14px;
+ }
 
 #panel-header-title {
  float: left;
@@ -287,4 +211,118 @@ a.my-navbar-item:hover {
  font-size:20px;
  padding-top:5px;
  text-align:center;
+}
+
+/*
+実績表ページのテーブルタイトル部
+*/
+
+.panel-table-header {
+  border: solid 1px #cacaca;
+}
+
+.panel-table-service {
+  height: 60px;
+  border: solid 1px #cacaca;
+  font-weight: bold;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+.panel-table-title {
+  height: 60px;
+  margin-bottom: 10px;
+  font-size:13px;
+  text-align: center;
+ } 
+
+/*タイトル部*/
+#attend_day {
+  padding:0 30px;
+ }
+
+#attend_week {
+  padding-right: 30px;
+  border-right: solid 1px #cacaca;
+}
+
+#service_offer {
+  padding-left:150px;
+  text-align: center;
+}
+
+#note {
+  padding-left: 22px;
+  border-left: solid 1px #cacaca;
+}
+
+#stamp {
+  padding:0 34px;
+}
+
+#service_confirm {
+  padding: 0 29px;
+}
+
+#punch_in {
+  padding-right:28px;
+  text-align:center
+}
+
+#punch_out {
+  padding-right:28px;
+  text-align:center
+}
+
+#meal {
+  padding-right:28px;
+}
+
+#outside {
+  padding-right:28px;
+}
+
+#medical {
+  padding-right:29px;
+}
+
+/*実績一覧部*/
+#input_attend_day {
+  padding: 0 29px;
+  text-align:center;
+}
+
+#input_attend_week {
+  padding:0 30px 0 0;
+  text-align:center;
+}
+
+#input_service_confirm {
+  padding:0 70px;
+  text-align:center;
+}
+
+#input_punch_in {
+  padding:0 10px;
+}
+
+#input_punch_out {
+  padding:0 10px;
+}
+
+#input_meal {
+  padding:0 20px 0 40px;
+}
+
+#input_outside {
+  padding:0 20px 0 40px;
+}
+
+#input_medical {
+  padding:0 40px;
+}
+
+#input_note {
+  text-align:center;
 }

@@ -20,9 +20,9 @@ class CreatePerformancesTable extends Migration
         Schema::create('performances', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('timecard_id')->unsigned();
-            $table->boolean('meal_fg')->default(0);
-            $table->boolean('outside_fg')->default(0);
-            $table->boolean('medical_fg')->default(0);
+            $table->boolean('meal_fg')->nullable();
+            $table->boolean('outside_fg')->nullable();
+            $table->boolean('medical_fg')->nullable();
             $table->integer('note')->default(1);
             $table->timestamps();
 

@@ -55,17 +55,14 @@
                 </tr>
                 <tr>
                   <td class="form-title">食事提供加算</td>
-                  <input type="hidden" name="meal_fg" value="0" />
                   <td><input type="checkbox" name="meal_fg" value="1" @if($performance->meal_fg == '1') checked @endif></td>
                 </tr>
                 <tr>
                   <td class="form-title">施設外支援加算</td>
-                  <input type="hidden" name="outside_fg" value="0" />
                   <td><input type="checkbox" name="outside_fg" value="2"@if($performance->outside_fg == '2') checked @endif></td>
                 </tr>
                 <tr>
                   <td class="form-title">医療連携加算</td>
-                  <input type="hidden" name="medical_fg" value="0" />
                   <td><input type="checkbox" name="medical_fg" value="2" @if($performance->medical_fg == '2') checked @endif></td>
                 </tr>
                 <tr>

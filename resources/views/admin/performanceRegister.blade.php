@@ -60,17 +60,14 @@
                 </tr>
                 <tr>
                   <td class="form-title">食事提供加算</td>
-                  <input type="hidden" name="meal_fg" value="0" />
                   <td><input type="checkbox" name="meal_fg" value="1"></td>
                 </tr>
                 <tr>
                   <td class="form-title">施設外支援加算</td>
-                  <input type="hidden" name="outside_fg" value="0" />
                   <td><input type="checkbox" name="outside_fg" value="2"></td>
                 </tr>
                 <tr>
                   <td class="form-title">医療連携加算</td>
-                  <input type="hidden" name="medical_fg" value="0" />
                   <td><input type="checkbox" name="medical_fg" value="2"></td>
                 </tr>
                 <tr>

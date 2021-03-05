@@ -96,7 +96,7 @@ class PerformanceResultController extends Controller
         
         //出席日を年月日に分割
         list($year, $month, $day) = explode('-', $attend_date);
-        $daysInMonth = Carbon::now()->daysInMonth;
+        $daysInMonth = Carbon::create($year, $month, 1)->endOfMonth();
 
         //実績一覧をリレーション先で検索
         $performances = Performance::whereHas('timecard', function($query) use($user_id, $attend_date){
@@ -116,7 +116,7 @@ class PerformanceResultController extends Controller
         $records = $days;
         foreach($performances as $performance) 
         {
-            for ($n = 0; $n < $daysInMonth; $n++) {
+            for ($n = 0; $n < mb_substr($daysInMonth, 8,2); $n++) {
                 if ($records[$n] == $performance->timecard->attend_date) {
                     $records[$n] = $performance;
                 }

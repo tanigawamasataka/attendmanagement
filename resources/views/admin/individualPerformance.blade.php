@@ -20,57 +20,58 @@
             <div id="panel-header-school-name">未来のかたち {{ $user->school->school_name }}</div>
           </div>
         </div>
-        <div class="panel-body"> 
-          <div class="panel-table-header">        
-            <div class="panel-table-date-name">
-              <span>日付</span>
-              <span>曜日</span>
-            </div>
-            <div class="panel-table-category">
-              <div class="panel-table-title">サービス提供実績</div>
-              <span class="service">サービス確認状況</span>
-              <span class="service">開始時間</span>
-              <span class="service">終了時間</span>
-              <span class="service">食事提供加算</span>
-              <span class="service">施設外支援加算</span>
-              <span class="service">医療連携体系加算</span>
-            </div>
-            <div class="panel-table-remarks">
-              <span>備考</span>
-              <span>利用者確認印</span>
-            </div>
-          </div>
-              <div class="clear"></div>
-            <div class="panel-records">
-              @foreach (array_map(null, $days, $weeks, $records) as [$day, $week, $record])
-                @if ($day == $record)
-                <ul id="performances">  
-                  <li id="attend_day">{{ ltrim($day->isoformat('DD'), "0") }}日</li>
-                  <li id="attend_week">{{ $week->isoformat('ddd') }}</li>
-                  <li id="service">欠</li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>
-                @else
-                <ul id="performances">  
-                  <li id="attend_day">{{ ltrim($day->isoformat('DD'), "0") }}日</li>
-                  <li id="attend_week">{{ $week->isoformat('ddd') }}</li>
-                  <li id="service"></li>
-                  <li id="punch_in">{{ mb_substr($record->timecard->punch_in, 0,5) }}</li>
-                  <li id="punch_out">{{ mb_substr($record->timecard->punch_out, 0,5) }}</li>
-                  <li id="meal">{{ $record->meal_fg }}</li>
-                  <li id="outside">{{ $record->outside_fg }}</li>
-                  <li id="medical">{{ $record->medical_fg }}</li>
-                  <li id="note"><span class="label {{ $record->note_class }}">{{ $record->note_label }}</span></li>
-                </ul>
-                @endif
-              @endforeach
-            </div>
-        </nav>   
+        <table id="performance_table"> 
+          <thead class="panel-table-header">        
+            <tr class="panel-table-title">
+              <th id="attend_day" rowspan="2">日付</th>
+              <th id="attend_week" rowspan="2">曜日</th>
+              <th id="service_offer" colspan="5">サービス提供実績</th>
+              <th></th>
+              <th id="note" rowspan="2">備考</th>
+              <th id="stamp" rowspan="2">利用者確認印</th>
+            </tr>
+            <tr class="panel-table-service">  
+              <th id="service_confirm">サービス確認状況</th>
+              <th id="punch_in">開始時間</th>
+              <th id="punch_out">終了時間</th>
+              <th id="meal">食事提供加算</th>
+              <th id="outside">施設外支援加算</th>
+              <th id="medical">医療連携体系加算</th>
+            </tr>
+          </thead>
+          <tbody>
+          @foreach (array_map(null, $days, $weeks, $records) as [$day, $week, $record])
+            @if ($day == $record)
+            <tr id="performances">  
+              <td id="input_attend_day">{{ ltrim($day->isoformat('DD'), "0") }}日</td>
+              <td id="input_attend_week">{{ $week->isoformat('ddd') }}</td>
+              <td id="input_service_confirm">欠</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            @else
+            <tr id="performances">
+              <td id="input_attend_day">{{ ltrim($day->isoformat('DD'), "0") }}日</td>
+              <td id="input_attend_week">{{ $week->isoformat('ddd') }}</td>
+              <td id="input_service_confirm"></td>
+              <td id="input_punch_in">{{ mb_substr($record->timecard->punch_in, 0,5) }}</td>
+              <td id="input_punch_out">{{ mb_substr($record->timecard->punch_out, 0,5) }}</td>
+              <td id="input_meal">{{ $record->meal_fg }}</td>
+              <td id="input_outside">{{ $record->outside_fg }}</td>
+              <td id="input_medical">{{ $record->medical_fg }}</td>
+              <td id="input_note"><span class="label {{ $record->note_class }}">{{ $record->note_label }}</span></td>
+              <td></td>
+            </tr>
+            @endif
+          @endforeach
+          </tbody>
+        </table>
+      </nav>   
     </div>
   </div>
 @endsection('content')

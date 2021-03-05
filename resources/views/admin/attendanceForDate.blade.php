@@ -7,7 +7,7 @@
 
 @section('content')
   <div class="container">
-    <div class="form-group col-offset-2 col-md-2 attendForDate">
+    <div class="form-group col-offset-2 col-md-2" id="attendForDate">
         {!! Form::open(['route' => 'attendanceForDate', 'method' => 'post']) !!}
           {!! Form::select('schools', Config::get('schools.value'), null, ['class' => 'form-control col-sm-3']) !!}
     </div>
