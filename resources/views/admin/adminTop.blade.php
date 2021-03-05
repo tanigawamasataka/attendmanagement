@@ -25,7 +25,7 @@
         <div class="container">
           <div class="col col-md-offset-3 col-md-5">
             <nav class="panel panel-default">
-            <div class="panel-heading">管理ページ</div>
+            <div class="panel-heading">管理者ページ</div>
                 <div class="panel-body">
                 <a href="{{ route('userManagementList') }}" class="btn btn-primary w-50">
                     利用者管理
