@@ -17,7 +17,7 @@ class PerformanceManagementController extends Controller
     public function showPerformanceManagement()
     {
         //実績をリレーションテーブルと一緒に取得
-        $performances = Performance::with(['timecard.user.school'])->get();
+        $performances = Performance::with(['timecard.user.school'])->has('timecard.user')->get();
 
         return view('/admin/performanceManagement', [
             'performances' => $performances,
@@ -101,7 +101,7 @@ class PerformanceManagementController extends Controller
     public function showAttendanceForDate()
     {
         //タイムカードをリレーションテーブルと一緒に取得
-        $timecards = Timecard::with(['user.school'])->take(30)->latest()->get();
+        $timecards = Timecard::with(['user.school'])->has('user')->take(30)->latest()->get();
         
         return view('/admin/attendanceForDate', [
             'timecards' => $timecards,
