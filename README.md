@@ -26,7 +26,7 @@ PHPのフレームワークlaravelで作成したポートフォリオです。
 
 #### 管理者ページ
 
-
+![attendmanagement2](https://user-images.githubusercontent.com/73512554/110243525-1d6a5400-7f9e-11eb-9968-359bddb96d81.JPG)
 
 ### 機能一覧
 #### 利用者
