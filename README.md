@@ -19,6 +19,15 @@ PHPのフレームワークlaravelで作成したポートフォリオです。
 * mysql
 * Laravel Excel3.1
 
+### 画面イメージ
+#### 利用者ページ
+
+![attendmanagement1](https://user-images.githubusercontent.com/73512554/110243434-ac2aa100-7f9d-11eb-8314-56c0ad0da682.JPG)
+
+#### 管理者ページ
+
+
+
 ### 機能一覧
 #### 利用者
 * 所属校、利用者名を選択してタイムカードを打刻
